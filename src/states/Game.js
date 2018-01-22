@@ -68,9 +68,9 @@ export default class extends Phaser.State {
 
   setUpPaddle () {
     this.paddle = new Paddle(
-        this.game,
-        this.game.world.centerX,
-        this.game.world.height - 100
+      this.game,
+      this.game.world.centerX,
+      this.game.world.height - 100
     )
 
     this.game.add.existing(this.paddle)
@@ -89,23 +89,23 @@ export default class extends Phaser.State {
     let brick
 
     for (let y = 0; y < rows; y++) {
-        for (let x = 0; x < columns; x++) {
-            brick = new Brick(
-                this.game,
-                x * xOffset,
-                y * yOffset
-            )
+      for (let x = 0; x < columns; x++) {
+        brick = new Brick(
+          this.game,
+          x * xOffset,
+          y * yOffset
+        )
 
-            bricksGroup.add(brick)
-        }
+        bricksGroup.add(brick)
+      }
     }
 
     let brickGroupWidth = ((xOffset * columns) - (xOffset - brick.width)) / 2
     let brickGroupHeight = ((yOffset * rows) - (yOffset - brick.height)) / 2
 
     bricksGroup.position.setTo(
-        this.game.world.centerX - brickGroupWidth,
-        this.game.world.centerY - brickGroupHeight
+      this.game.world.centerX - brickGroupWidth,
+      this.game.world.centerY - brickGroupHeight
     )
   }
 
@@ -117,14 +117,14 @@ export default class extends Phaser.State {
 
   createText (xOffset, yOffset, align, text) {
     return this.game.add.text(
-        xOffset,
-        yOffset,
-        text,
-        {
-            font: '25px Arial',
-            fill: '#000',
-            boundsAlignH: align
-        }
+      xOffset,
+      yOffset,
+      text,
+      {
+        font: '25px Arial',
+        fill: '#000',
+        boundsAlignH: align
+      }
     ).setTextBounds(0, 0, this.game.world.width, 0)
   }
 
@@ -151,8 +151,6 @@ export default class extends Phaser.State {
   }
 
   ballHitPaddle (ball, paddle) {
-    let diff = 0
-
     if (ball.isOnLeftOfPaddle(paddle)) {
       ball.pushLeft(paddle)
       return
@@ -182,6 +180,5 @@ export default class extends Phaser.State {
   }
 
   render () {
-    
   }
 }
